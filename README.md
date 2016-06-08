@@ -1,0 +1,2 @@
+# ortholog
+A python library for finding orthologous genes amongst species
