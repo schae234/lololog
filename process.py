@@ -16,6 +16,7 @@ def get_best_matches(csvfile):
             pass
         else:
             if row[FIRST_ID] != prevbestid:
+                sys.stdout.write('\t'.join(row))
                 best.append(row)
                 prevbestid = row[FIRST_ID]
 
@@ -34,9 +35,6 @@ def main():
 
         except OSError:
             print('Could not open file {}'.format(filename))
-
-        for row in bests:
-            sys.stdout.write('\t'.join(row))
 
 if __name__ == '__main__':
     main()
