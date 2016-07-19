@@ -9,16 +9,17 @@ def get_best_matches(csvfile):
     SECOND_ID = 1
 
     best = []
-    prevbestid = ''
+    prevbest = []
 
     for row in csvfile:
         if row[FIRST_ID] == row[SECOND_ID]:
             pass
         else:
-            if row[FIRST_ID] != prevbestid:
-                sys.stdout.write('\t'.join(row) + '\n')
-                best.append(row)
-                prevbestid = row[FIRST_ID]
+            if row[FIRST_ID] != prevbest[FIRST_ID]:
+                if row[FIRST_ID][0:4] != row[SECOND_ID][0:4]:
+                    sys.stdout.write('\t'.join(row) + '\n')
+                    best.append(row)
+                    prevbest = row
 
     return best
 
