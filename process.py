@@ -36,8 +36,15 @@ def main():
                 csvfile = csv.reader(csvin, delimiter='\t')
                 bests = get_best_matches(csvfile)
 
-        except OSError:
+        except FileNotFoundError:
             print('Could not open file {}'.format(filename))
+
+        except BrokenPipeError:
+            sys.stderr.close()
+            sys.exit(0)
+
+        finally:
+            sys.exit(0)
 
 if __name__ == '__main__':
     main()
