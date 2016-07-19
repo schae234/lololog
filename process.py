@@ -29,7 +29,7 @@ def main():
 
         try:
             with open(filename) as csvin:
-                csvfile = csv.reader(csvin)
+                csvfile = csv.reader(csvin, delimiter='\t')
                 bests = get_best_matches(csvfile)
 
         except OSError:
