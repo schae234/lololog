@@ -4,9 +4,9 @@ import sys
 import csv
 
 def get_best_matches(csvfile):
+    """"""
     FIRST_ID = 0
     SECOND_ID = 1
-    SCORE = 7
 
     best = []
     prevbestid = ''
@@ -16,11 +16,14 @@ def get_best_matches(csvfile):
             pass
         else:
             if row[FIRST_ID] != prevbestid:
-                sys.stdout.write('\t'.join(row))
+                sys.stdout.write('\t'.join(row) + '\n')
                 best.append(row)
                 prevbestid = row[FIRST_ID]
 
+    return best
+
 def main():
+    """Main method"""
     if len(sys.argv) != 2:
         print('Wrong number of arguments')
     else:
