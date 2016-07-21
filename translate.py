@@ -18,7 +18,7 @@ def build_lookup_table(tsvref):
 def main():
     if len(sys.argv) != 4:
         print('Wrong number of arguments')
-        print('translate.py INCOLUMN INPUT REF')
+        print('translate.py COLUMN_TO_TRANSLATE INPUT REF')
         print('Columns are zero-indexed')
 
     else:
