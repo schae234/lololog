@@ -4,12 +4,12 @@ import sys
 import csv
 
 def get_best_matches(csvfile):
-    """"""
+    """Find the best match for each transcript"""
     FIRST_ID = 0
     SECOND_ID = 1
 
     best = []
-    prevbest = []
+    prevbest = next(csvfile)
 
     for row in csvfile:
         if row[FIRST_ID] == row[SECOND_ID]:
@@ -42,7 +42,6 @@ def main():
 
         except BrokenPipeError:
             sys.stderr.close()
-            sys.exit(0)
 
         finally:
             sys.exit(0)
