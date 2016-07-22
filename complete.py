@@ -33,10 +33,16 @@ def main():
 
                 for row in tsvin:
                     row = row[0:5]
-                    row[4] = table[row[1]]
 
-                    sys.stdout.write('{}\n'.format('\t'.join(row)))
-                    sys.stdout.flush()
+                    try:
+                        row[4] = table[row[1]]
+
+                    except KeyError:
+                        pass
+
+                    finally:
+                        sys.stdout.write('{}\n'.format('\t'.join(row)))
+                        sys.stdout.flush()
 
         except FileNotFoundError as err:
             print(err)
